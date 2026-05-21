@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.VidaDeAluno360.Entities.Tarefa;
-import com.VidaDeAluno360.Services.TarefaService;
+import com.VidaDeAluno360.Entities.Curso;
+import com.VidaDeAluno360.Services.CursoService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/tarefa")
+@RequestMapping("/cursos")
 @RequiredArgsConstructor
 @CrossOrigin("*")
-public class TarefaController {
+public class CursoController {
 	
-	private final TarefaService service;
+	private final CursoService service;
 	
 	@PostMapping
-	public Tarefa cadastrar(@RequestBody Tarefa tarefa) {
-		return service.cadastrar(tarefa);	
+	public Curso cadastrar(@RequestBody Curso curso) {
+		return service.cadastrar(curso);	
 	}
 	@GetMapping("/{id}")
-	public Tarefa buscarPorId(@PathVariable Long id) {
+	public Curso buscarPorId(@PathVariable Long id) {
 		return service.buscarPorId(id);
 	}
 	@PutMapping("/{id}")
-	public Tarefa atualizar(
+	public Curso atualizar(
 			@PathVariable Long id,
-			@RequestBody Tarefa tarefa) {
-		return service.atualizar(id, tarefa);
+			@RequestBody Curso curso) {
+		return service.atualizar(id, curso);
 	}
 	@DeleteMapping("/{id}")
 	public String deletar(@PathVariable Long id) {
 		service.deletar(id);
 		
-		return "Tarefa deletada com sucesso";
+		return "Curso deletado com sucesso";
 	}
 }

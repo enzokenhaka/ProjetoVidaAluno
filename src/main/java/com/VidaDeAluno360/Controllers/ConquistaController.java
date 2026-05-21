@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.VidaDeAluno360.Entities.Eventos;
-import com.VidaDeAluno360.Services.EventosService;
+import com.VidaDeAluno360.Entities.Conquista;
+import com.VidaDeAluno360.Services.ConquistaService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/eventos")
+@RequestMapping("/conquistas")
 @RequiredArgsConstructor
 @CrossOrigin("*")
-public class EventosController {
+public class ConquistaController {
 	
-	private final EventosService service;
+	private final ConquistaService service;
 	
 	@PostMapping
-	public Eventos cadastrar(@RequestBody Eventos eventos) {
-		return service.cadastrar(eventos);	
+	public Conquista cadastrar(@RequestBody Conquista conquistas) {
+		return service.cadastrar(conquistas);	
 	}
 	@GetMapping("/{id}")
-	public Eventos buscarPorId(@PathVariable Long id) {
+	public Conquista buscarPorId(@PathVariable Long id) {
 		return service.buscarPorId(id);
 	}
 	@PutMapping("/{id}")
-	public Eventos atualizar(
+	public Conquista atualizar(
 			@PathVariable Long id,
-			@RequestBody Eventos eventos) {
-		return service.atualizar(id, eventos);
+			@RequestBody Conquista conquistas) {
+		return service.atualizar(id, conquistas);
 	}
 	@DeleteMapping("/{id}")
 	public String deletar(@PathVariable Long id) {
 		service.deletar(id);
 		
-		return "Evento deletado com sucesso";
+		return "Conquista deletada com sucesso";
 	}
 }

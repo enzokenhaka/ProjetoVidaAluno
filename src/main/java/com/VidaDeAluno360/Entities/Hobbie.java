@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Cursos {
+public class Hobbie {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -16,13 +16,13 @@ public class Cursos {
 	
 	private String nome;
 	
-	private String instituicao;
+	private String categoria;
 	
-	private String cargaHoraria;
+	private String plataforma;
 	
-	private String area;
+	private String tempoSemanal;
 	
-	private String nivel;
+	private String nivelHabilidade;
 	
 	private String status;
 
@@ -42,36 +42,36 @@ public class Cursos {
 		this.nome = nome;
 	}
 
-	public String getInstituicao() {
-		return instituicao;
+	public String getCategoria() {
+		return categoria;
 	}
 
-	public void setInstituicao(String instituicao) {
-		this.instituicao = instituicao;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
-	public String getCargaHoraria() {
-		return cargaHoraria;
+	public String getPlataforma() {
+		return plataforma;
 	}
 
-	public void setCargaHoraria(String cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
+	public void setPlataforma(String plataforma) {
+		this.plataforma = plataforma;
 	}
 
-	public String getArea() {
-		return area;
+	public String getTempoSemanal() {
+		return tempoSemanal;
 	}
 
-	public void setArea(String area) {
-		this.area = area;
+	public void setTempoSemanal(String tempoSemanal) {
+		this.tempoSemanal = tempoSemanal;
 	}
 
-	public String getNivel() {
-		return nivel;
+	public String getNivelHabilidade() {
+		return nivelHabilidade;
 	}
 
-	public void setNivel(String nivel) {
-		this.nivel = nivel;
+	public void setNivelHabilidade(String nivelHabilidade) {
+		this.nivelHabilidade = nivelHabilidade;
 	}
 
 	public String getStatus() {
@@ -81,7 +81,7 @@ public class Cursos {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
+	
 	//Acho que no meu computador tem algo de errado com o Lombok, precisei criar os Getters e Setter
 	//pra não ficar dando erro no Service, e no Controller por conseguinte
 }

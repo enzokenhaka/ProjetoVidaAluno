@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.VidaDeAluno360.Entities.Eventos;
-import com.VidaDeAluno360.Repositories.EventosRepository;
+import com.VidaDeAluno360.Entities.Evento;
+import com.VidaDeAluno360.Repositories.EventoRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,21 +13,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EventosService {
 	
-	private final EventosRepository repository;
+	private final EventoRepository repository;
 	
-	public Eventos cadastrar(Eventos eventos) {
+	public Evento cadastrar(Evento eventos) {
 		return repository.save(eventos);
 	}
-	public List<Eventos> listar(){
+	public List<Evento> listar(){
 		return repository.findAll();
 	}
-	public Eventos buscarPorId(Long id) {
+	public Evento buscarPorId(Long id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new RuntimeException("Evento não encontrado"));
 	}
-	public Eventos atualizar(Long id, Eventos eventos) {
+	public Evento atualizar(Long id, Evento eventos) {
 		
-		Eventos eventosExistente = buscarPorId(id);
+		Evento eventosExistente = buscarPorId(id);
 		
 		eventosExistente.setNome(eventosExistente.getNome());
 		eventosExistente.setDescricao(eventosExistente.getDescricao());
@@ -35,6 +35,8 @@ public class EventosService {
 		eventosExistente.setData(eventosExistente.getData());
 		eventosExistente.setHorario(eventosExistente.getHorario());
 		eventosExistente.setTipo(eventosExistente.getTipo());
+		
+		return repository.save(eventosExistente);
 	}
 
 }

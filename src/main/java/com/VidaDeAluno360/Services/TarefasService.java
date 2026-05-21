@@ -4,30 +4,30 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.VidaDeAluno360.Entities.Tarefa;
-import com.VidaDeAluno360.Repositories.TarefaRepository;
+import com.VidaDeAluno360.Entities.Tarefas;
+import com.VidaDeAluno360.Repositories.TarefasRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class TarefaService {
+public class TarefasService {
 	
-	private final TarefaRepository repository;
+	private final TarefasRepository repository;
 	
-	public Tarefa cadastrar(Tarefa tarefa) {
+	public Tarefas cadastrar(Tarefas tarefa) {
 		return repository.save(tarefa);
 	}
-	public List<Tarefa> listar(){
+	public List<Tarefas> listar(){
 		return repository.findAll();
 	}
-	public Tarefa buscarPorId(Long id) {
+	public Tarefas buscarPorId(Long id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new RuntimeException("Hobbie não encontrado"));
 	}
-	public Tarefa atualizar(Long id, Tarefa tarefa) {
+	public Tarefas atualizar(Long id, Tarefas tarefa) {
 		
-		Tarefa tarefaExistente = buscarPorId(id);
+		Tarefas tarefaExistente = buscarPorId(id);
 		
 		tarefaExistente.setTitulo(tarefaExistente.getTitulo());
 		tarefaExistente.setDescricao(tarefaExistente.getDescricao());
@@ -35,6 +35,8 @@ public class TarefaService {
 		tarefaExistente.setDataEntrega(tarefaExistente.getDataEntrega());
 		tarefaExistente.setPrioridade(tarefaExistente.getPrioridade());
 		tarefaExistente.setStatus(tarefaExistente.getStatus());
+		
+		return repository.save(tarefaExistente);
 	}
 
 }

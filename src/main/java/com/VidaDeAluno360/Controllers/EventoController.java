@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.VidaDeAluno360.Entities.Cursos;
-import com.VidaDeAluno360.Services.CursosService;
+import com.VidaDeAluno360.Entities.Evento;
+import com.VidaDeAluno360.Services.EventosService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/cursos")
+@RequestMapping("/eventos")
 @RequiredArgsConstructor
 @CrossOrigin("*")
-public class CursosController {
+public class EventoController {
 	
-	private final CursosService service;
+	private final EventosService service;
 	
 	@PostMapping
-	public Cursos cadastrar(@RequestBody Cursos cursos) {
-		return service.cadastrar(cursos);	
+	public Evento cadastrar(@RequestBody Evento eventos) {
+		return service.cadastrar(eventos);	
 	}
 	@GetMapping("/{id}")
-	public Cursos buscarPorId(@PathVariable Long id) {
+	public Evento buscarPorId(@PathVariable Long id) {
 		return service.buscarPorId(id);
 	}
 	@PutMapping("/{id}")
-	public Cursos atualizar(
+	public Evento atualizar(
 			@PathVariable Long id,
-			@RequestBody Cursos cursos) {
-		return service.atualizar(id, cursos);
+			@RequestBody Evento eventos) {
+		return service.atualizar(id, eventos);
 	}
 	@DeleteMapping("/{id}")
 	public String deletar(@PathVariable Long id) {
 		service.deletar(id);
 		
-		return "Curso deletado com sucesso";
+		return "Evento deletado com sucesso";
 	}
 }

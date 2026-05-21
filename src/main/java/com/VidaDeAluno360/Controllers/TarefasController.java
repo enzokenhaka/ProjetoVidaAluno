@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.VidaDeAluno360.Entities.Conquistas;
-import com.VidaDeAluno360.Services.ConquistasService;
+import com.VidaDeAluno360.Entities.Tarefas;
+import com.VidaDeAluno360.Services.TarefasService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/conquistas")
+@RequestMapping("/tarefa")
 @RequiredArgsConstructor
 @CrossOrigin("*")
-public class ConquistasController {
+public class TarefasController {
 	
-	private final ConquistasService service;
+	private final TarefasService service;
 	
 	@PostMapping
-	public Conquistas cadastrar(@RequestBody Conquistas conquistas) {
-		return service.cadastrar(conquistas);	
+	public Tarefas cadastrar(@RequestBody Tarefas tarefa) {
+		return service.cadastrar(tarefa);	
 	}
 	@GetMapping("/{id}")
-	public Conquistas buscarPorId(@PathVariable Long id) {
+	public Tarefas buscarPorId(@PathVariable Long id) {
 		return service.buscarPorId(id);
 	}
 	@PutMapping("/{id}")
-	public Conquistas atualizar(
+	public Tarefas atualizar(
 			@PathVariable Long id,
-			@RequestBody Conquistas conquistas) {
-		return service.atualizar(id, conquistas);
+			@RequestBody Tarefas tarefa) {
+		return service.atualizar(id, tarefa);
 	}
 	@DeleteMapping("/{id}")
 	public String deletar(@PathVariable Long id) {
 		service.deletar(id);
 		
-		return "Conquista deletada com sucesso";
+		return "Tarefa deletada com sucesso";
 	}
 }

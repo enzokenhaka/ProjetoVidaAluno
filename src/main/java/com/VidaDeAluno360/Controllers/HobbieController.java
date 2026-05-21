@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.VidaDeAluno360.Entities.Metas;
-import com.VidaDeAluno360.Services.MetasService;
+import com.VidaDeAluno360.Entities.Hobbie;
+import com.VidaDeAluno360.Services.HobbieService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/metas")
+@RequestMapping("/hobbies")
 @RequiredArgsConstructor
 @CrossOrigin("*")
-public class MetasController {
+public class HobbieController {
 	
-	private final MetasService service;
+	private final HobbieService service;
 	
 	@PostMapping
-	public Metas cadastrar(@RequestBody Metas metas) {
-		return service.cadastrar(metas);	
+	public Hobbie cadastrar(@RequestBody Hobbie hobbie) {
+		return service.cadastrar(hobbie);	
 	}
 	@GetMapping("/{id}")
-	public Metas buscarPorId(@PathVariable Long id) {
+	public Hobbie buscarPorId(@PathVariable Long id) {
 		return service.buscarPorId(id);
 	}
 	@PutMapping("/{id}")
-	public Metas atualizar(
+	public Hobbie atualizar(
 			@PathVariable Long id,
-			@RequestBody Metas metas) {
-		return service.atualizar(id, metas);
+			@RequestBody Hobbie hobbie {
+		return service.atualizar(id, hobbie);
 	}
 	@DeleteMapping("/{id}")
 	public String deletar(@PathVariable Long id) {
 		service.deletar(id);
 		
-		return "Meta deletada com sucesso";
+		return "Hobbie deletado com sucesso";
 	}
 }

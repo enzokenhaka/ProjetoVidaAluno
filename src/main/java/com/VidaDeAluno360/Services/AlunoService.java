@@ -35,6 +35,8 @@ public class AlunoService {
 		alunoExistente.setTelefone(alunoExistente.getTelefone());
 		alunoExistente.setTurma(alunoExistente.getTurma());
 		alunoExistente.setStatus(alunoExistente.getStatus());
+		
+		return repository.save(alunoExistente);
 	}
 
 }

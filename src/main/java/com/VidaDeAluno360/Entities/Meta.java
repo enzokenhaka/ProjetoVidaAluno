@@ -1,7 +1,5 @@
 package com.VidaDeAluno360.Entities;
 
-import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Tarefa {
+public class Meta {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,11 +18,11 @@ public class Tarefa {
 	
 	private String descricao;
 	
-	private String materia;
+	private String categoria;
 	
-	private LocalDate dataEntrega;
+	private String prazo;
 	
-	private String prioridade;
+	private String progresso;
 	
 	private String status;
 
@@ -52,28 +50,28 @@ public class Tarefa {
 		this.descricao = descricao;
 	}
 
-	public String getMateria() {
-		return materia;
+	public String getCategoria() {
+		return categoria;
 	}
 
-	public void setMateria(String materia) {
-		this.materia = materia;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
-	public LocalDate getDataEntrega() {
-		return dataEntrega;
+	public String getPrazo() {
+		return prazo;
 	}
 
-	public void setDataEntrega(LocalDate dataEntrega) {
-		this.dataEntrega = dataEntrega;
+	public void setPrazo(String prazo) {
+		this.prazo = prazo;
 	}
 
-	public String getPrioridade() {
-		return prioridade;
+	public String getProgresso() {
+		return progresso;
 	}
 
-	public void setPrioridade(String prioridade) {
-		this.prioridade = prioridade;
+	public void setProgresso(String progresso) {
+		this.progresso = progresso;
 	}
 
 	public String getStatus() {
@@ -86,5 +84,4 @@ public class Tarefa {
 
 	//Acho que no meu computador tem algo de errado com o Lombok, precisei criar os Getters e Setter
 	//pra não ficar dando erro no Service, e no Controller por conseguinte
-	
 }
